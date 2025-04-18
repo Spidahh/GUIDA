@@ -10,29 +10,34 @@
 <body>
 <button class="menu-toggle" onclick="toggleMenu()">☰ Menu</button>
 <header>
-<h1 id="titolo">GUIDA ITINERIS</h1>
+
+<div style="display: flex; justify-content: space-between; align-items: center;">
+  <h1 style="margin: 0; display: flex; align-items: center;">
+    <img src="img/COTRAP.svg" alt="Logo Cotrap" style="height:40px; vertical-align:middle; margin-right:10px;">
+    GUIDA SISTEMA ITINERIS
+  </h1>
+  <button onclick="window.print()" style="padding: 8px 12px; font-size: 14px; cursor: pointer;">Stampa sezione</button>
+</div>
+
 </header>
 <div class="menu">
 <ul>
-<li class="grosso" onclick="changeContent('home')">Home</li>
-<li class="grosso" onclick="changeContent('introduzione')">Introduzione</li>
-<li class="grosso" onclick="changeContent('profilo_commerciale')">Profilo Commerciale</li>
-<li class="grosso" onclick="changeContent('gestione_movimento')">Gestione Movimento</li>
-<li class="grosso" onclick="changeContent('eccezioni')">Eccezioni</li>
-<li class="grosso" onclick="changeContent('ordini')">Ordini</li>
-<li class="grosso" onclick="changeContent('esportazioni')">Esportazioni</li>
-<li class="grosso" onclick="changeContent('sezionecontabile')">Sezione Contabile</li>
+<li class="grosso" data-submenu="false" onclick="changeContent('home')">Home</li>
+<li class="grosso" data-submenu="false" onclick="changeContent('introduzione')">Introduzione<ul class="submenu"><li><a href="#introduzione_h2_0">OBIETTIVO DEL DOCUMENTO</a></li><li><a href="#introduzione_h2_1">SINTESI DEL DOCUMENTO</a></li><li><a href="#introduzione_h2_2">DESTINATARI</a></li><li><a href="#introduzione_h2_3">CONTENUTI</a></li><li><a href="#introduzione_h2_4">REQUISITI MINIMI</a></li></ul></li>
+<li class="grosso" data-submenu="false" onclick="changeContent('profilo_commerciale')">Profilo Commerciale<ul class="submenu"><li><a href="#profilo_commerciale_h2_0">PRE-REQUISITI</a></li><li><a href="#profilo_commerciale_h2_1">CREAZIONE LINEA</a></li><li><a href="#profilo_commerciale_h2_2">CONFIGURAZIONE</a></li><li><a href="#profilo_commerciale_h2_3">TARIFFARI</a></li><li><a href="#profilo_commerciale_h2_4">CALENDARI</a></li><li><a href="#profilo_commerciale_h2_5">FREQUENZA CORSA</a></li><li><a href="#profilo_commerciale_h2_6">UTENTI APP CONTROLLI</a></li></ul></li>
+<li class="grosso" onclick="changeContent('gestione_movimento')">Gestione Movimento<ul class="submenu"><li><a href="#gestione_movimento_h2_0">COMPRENDERE IL SISTEMA</a></li><li><a href="#gestione_movimento_h2_1">MEZZI</a></li><li><a href="#gestione_movimento_h2_2">CODICI CONTABILI POLI</a></li><li><a href="#gestione_movimento_h2_3">CODICI CONTABILI ALTERNATIVI</a></li><li><a href="#gestione_movimento_h2_4">POLI</a></li><li><a href="#gestione_movimento_h2_5">LINEE</a></li><li><a href="#gestione_movimento_h2_6">CREAZIONE DEL TEMPLATE</a></li><li><a href="#gestione_movimento_h2_7">CORSE</a></li><li><a href="#gestione_movimento_h2_8">NOTE</a></li><li><a href="#gestione_movimento_h2_9">Titoli di viaggio</a></li></ul></li>
+<li class="grosso" data-submenu="false" onclick="changeContent('eccezioni')">Eccezioni<ul class="submenu"><li><a href="#eccezioni_h2_0">ECCEZIONI</a></li><li><a href="#eccezioni_h2_1">ECCEZIONI TARIFFARIE</a></li><li><a href="#eccezioni_h2_2">CONTROLLO TARIFFARIO</a></li><li><a href="#eccezioni_h2_3">CONTROLLO TARIFFARIO ITINERARIO</a></li></ul></li>
+<li class="grosso" data-submenu="false" onclick="changeContent('ordini')">Ordini<ul class="submenu"><li><a href="#ordini_h2_0">BIGLIETTI</a></li><li><a href="#ordini_h2_1">STATI OCCUPAZIONALI CORSE</a></li><li><a href="#ordini_h2_2">STATO CONTROLLI</a></li><li><a href="#ordini_h2_3">STATISTICHE BIGLIETTI</a></li></ul></li>
+<li class="grosso" data-submenu="false" onclick="changeContent('esportazioni')">Esportazioni</li>
+<li class="grosso" data-submenu="false" onclick="changeContent('sezionecontabile')">Sezione Contabile<ul class="submenu"><li><a href="#sezionecontabile_h2_0">Ordini</a></li><li><a href="#sezionecontabile_h2_1">Dati Contabili</a></li><li><a href="#sezionecontabile_h2_2">Biglietti</a></li><li><a href="#sezionecontabile_h2_3">Statistiche venduto</a></li></ul></li>
 <li class="special" onclick="changeContent('guida_veloce')">🚀 Guida Veloce</li>
 <li class="special" onclick="changeContent('app_controllo')">📱 APP Controllo</li>
 </ul>
 </div> <!-- FINE MENU -->
 <!-- Menu orizzontale con titoli H2 -->
-<div class="horizontal-menu">
-<ul></ul>
-</div>
 <div class="content" id="content"> <!-- SEZIONI -->
 <!-- HOME -->
-<section id="home">
+<section class="sezione-evidente" id="home">
 <h1>Home</h1>
 <p class="alert error">Benvenuti sulla Guida per i Sistemi Itineris!<br/>
                 Siamo lieti di darvi il benvenuto sulla nostra guida completa per i sistemi Itineris. <br/>
@@ -42,13 +47,63 @@
                 È importante sottolineare che i sistemi Itineris sono stati sviluppati in collaborazione con il Consorzio Trasporti Puglia (COTRAP), volti al miglioramento dei servizi di trasporto pubblico nella regione.<br/>
                 Attraverso questa partnership, ci impegniamo a offrire soluzioni innovative e efficaci per migliorare la mobilità e la qualità della vita dei cittadini.<br/>
                 Vi ringraziamo per la vostra visita e vi auguriamo un'esperienza informativa e utile durante la vostra navigazione su questo sito.</p>
-</section><section id="guida_veloce"><h1 class="h1titolo">🚀 GUIDA VELOCE</h1><p>Ecco una guida rapida per l'utilizzo dei moduli principali di Itineris.</p><ul><li>1. Accedi con le credenziali fornite dal consorzio.</li><li>2. Inserisci o verifica i dati delle linee e poli.</li><li>3. Crea le corse associandole a template e frequenze.</li><li>4. Attiva le corse e pubblicale per renderle visibili agli utenti.</li><li>5. Controlla gli ordini e scarica le esportazioni contabili.</li></ul></section>
+</section>
+<section class="sezione-evidente" id="guida_veloce">
+<h1 class="h1titolo">GUIDA VELOCE</h1>
+<p>Questa sezione fornisce un riepilogo pratico delle operazioni fondamentali per configurare correttamente gli abbonamenti in Itineris.</p>
+<h2 id="guida_veloce_h2_0">PRE-REQUISITI</h2>
+<ul>
+<li>Prepara uno schema mentale delle linee gestite</li>
+<li>Individua eventuali casi particolari o sovrapposizioni tra linee</li>
+</ul>
+<h2 id="guida_veloce_h2_1">COME SI ATTIVA UN ABBONAMENTO?</h2>
+<p><strong>Menu: Gestione Movimento → Titoli di viaggio</strong></p>
+<p><strong>Azioni:</strong> Abilita i tipi di abbonamento che desideri rendere disponibili.</p>
+<ol>
+<li>Gli abbonamenti possono essere gestiti per linea o per codice contabile.</li>
+<li>Se abiliti un titolo senza ulteriori configurazioni, sarà attivo su tutte le corse.</li>
+<li>Se gli stessi poli sono presenti in più linee, il sistema mostrerà solo l’abbonamento più costoso.</li>
+<li>È possibile escludere singoli poli da una linea.</li>
+<li>Per abbonamenti con un prezzo “atipico”, puoi forzare l’importo da:
+    <br/>Menu → <strong>Eccezioni</strong> → Eccezioni tariffarie abbonamenti.</li>
+</ol>
+<h2 id="guida_veloce_h2_2">ESEMPIO DI CONFIGURAZIONE</h2>
+<p><strong>Scenario:</strong> Hai due linee attive:</p>
+<ul>
+<li><strong>Linea 99</strong> → Bari (partenza da via Capruzzi) → Lecce (con fermate in vari comuni)</li>
+<li><strong>Linea 109</strong> → Bari (partenza da Zona Industriale) → Lecce (con meno fermate)</li>
+</ul>
+<p>Se il codice contabile del polo “Bari” è lo stesso per entrambe, il sistema proporrà solo l’abbonamento più costoso.</p>
+<img alt="Schema Abbonamenti" src="img/ABBONAMENTOVELOCE.png" style="width: 60%; height: auto; margin: 20px 0; cursor: zoom-in;"/>
+<h3>Soluzione</h3>
+<ol>
+<li>Vai su <strong>Gestione Movimento</strong> → <strong>Poli</strong></li>
+<li>Modifica il codice contabile del polo <strong>“Bari - Zona Industriale”</strong> </li>
+<li>Aggiungi una descrizione al polo, ad esempio:<strong>“Zona Industriale”</strong> <br/>
+ In questo modo sul sito shop <a href="https://biglietteria.cotrap.it/#/ricerca" target="_blank">https://biglietteria.cotrap.it/#/ricerca</a> apparirà come: <strong>“Bari - Zona Industriale”</strong></li>
+<li>Ricordati di cliccare su <strong>“Pubblica” </strong>dopo aver salvato le modifiche</li>
+</ol>
+<p><strong>Risultato:</strong> In fase di acquisto l’utente vedrà:</p>
+<ul>
+<li><strong>Bari – Lecce</strong> → 50€</li>
+<li><strong>Bari (Zona Industriale) – Lecce</strong> → 20€</li>
+</ul>
+<h2 id="guida_veloce_h2_3">ESEMPIO DI CONFIGURAZIONE 2</h2>
+<p><strong>Scenario:</strong> Sulla linea 99 è presente un passaggio tra Polignano e Brindisi che non si vuole includere nell'abbonamento 52 corse</p>
+<h3>Soluzione</h3>
+<ol>
+<li>Vai su <strong>Menu: Gestione Movimento → Titoli di viaggio</strong>
+<li>Clicca sul pulsante <strong>MODIFICA</strong> relativo all' <strong>Abb. Mensile/52</strong> </li>
+<li>Scorrere fino a <strong>Codici Contabili da escludere</strong> e inserire <strong>Il NOME</strong> del polo nel primo campo + eventuale <strong>Frazione</strong> e selezionare il <strong>Codice Contabile</strong> esatto dal menu' a tendina </li>
+<li>Ricordati di cliccare su <strong>“Pubblica” </strong>dopo aver salvato le modifiche con il tasto <strong>CONFERMA</strong> </li>
+</li></ol>
+</section>
 <!-- INTRODUZIONE -->
-<section id="introduzione">
+<section class="sezione-evidente" id="introduzione">
 <h1 class="h1titolo">INTRODUZIONE</h1>
-<h2 id="obiettivo-del-documento">OBIETTIVO DEL DOCUMENTO</h2>
+<h2 id="introduzione_h2_0">OBIETTIVO DEL DOCUMENTO</h2>
 <p>Tale manuale ha lo scopo di guidare i consorziati nella creazione di una linea che sarà poi vendibile sul portale di vendita <a href="https://www.cotrap.it" target="_blank">COTRAP</a> e al conseguente controllo contabile e amministrativo del venduto.</p>
-<h2 id="sintesi-del-documento">SINTESI DEL DOCUMENTO</h2>
+<h2 id="introduzione_h2_1">SINTESI DEL DOCUMENTO</h2>
 <p>Il documento descrive le funzionalità del software Itineris, finalizzate alla gestione delle linee, corse e bigliettazione e delle interazioni con il portale di vendita <a href="https://www.cotrap.it" target="_blank">COTRAP</a> e app clienti. Pertanto sono state redatte due sezioni distinte: una dedicata al reparto commerciale e una al reparto contabile/amministrativo.</p>
 <p>In particolare:</p>
 <ul>
@@ -57,16 +112,16 @@
 <li>Esportazione dati</li>
 <li>Controlli contabili</li>
 </ul>
-<h2 id="destinatari_del_manuale">DESTINATARI</h2>
+<h2 id="introduzione_h2_2">DESTINATARI</h2>
 <p>Il manuale è volto a supportare i Consorziati nella corretta gestione del caricamento Linee e corse sul software Itineris. </p>
-<h2 id="contenuti_manuale">CONTENUTI</h2>
+<h2 id="introduzione_h2_3">CONTENUTI</h2>
 <p>L'accesso al portale Itineris avviene cliccando sul seguente link: https://itinerisadminpanel.azurewebsites.net/ (consigliamo di memorizzarlo sulla barra dei preferiti) e richiede l'inserimento delle credenziali di accesso (ID utente e password) che sono forniti dall'Amministratore Cotrap a seguito della creazione della sezione dedicata al consorziato. È possibile recuperare la password in caso di dimenticanza cliccando sul tasto "recupero password" ed inserendo l'email di recupero (indicata preventivamente all'amministratore cotrap).</p>
 <img alt="ITINERIS" src="img/Immagine03.png"/>
 <p class="alert warn"><b>Attenzione:</b> saranno forniti al consorziato due account: uno relativo alla sezione contabile ed uno relativo alla sezione commerciale. <br/>
             Una volta effettuato l'accesso sarà visualizzata la pagina principale in cui sarà possibile visionare in basso a sinistra il profilo con cui avete effettuato l'accesso (es.  commerciale e il nome dell'azienda). <br/>
             In questo manuale sarà visualizzato il profilo cotrap, ma ha validità per tutti i consorziati.</p>
 <img alt="ITINERIS" src="img/Immagine03.01.png"/>
-<h2 id="requisiti_minimi">REQUISITI MINIMI</h2>
+<h2 id="introduzione_h2_4">REQUISITI MINIMI</h2>
 <p>I requisiti minimi per l'utilizzo del software sono:</p>
 <ul>
 <li><b>Connessione internet</b></li>
@@ -74,16 +129,16 @@
 </ul>
 </section>
 <!-- PROFILO COMMERCIALE -->
-<section id="profilo_commerciale">
+<section class="sezione-evidente" id="profilo_commerciale">
 <h1 class="h1titolo">PROFILO COMMERCIALE</h1>
 <p>In questa sezione saranno dettagliate tutte le procedure relative all'inserimento e alla gestione delle linee, corse lato commerciale e movimento. </p>
-<h2 id="pre_requisiti">PRE-REQUISITI</h2>
+<h2 id="profilo_commerciale_h2_0">PRE-REQUISITI</h2>
 <p>È necessario procedere con alcune azioni da fare preventivamente rispetto alla creazione di una linea su Itineris. Queste operazioni sono necessarie per garantire uniformità di dati tra Itineris e Tecbus.</p>
 <ul>
 <li>Dal sito Tecbus si verificano polimetriche attive, e tariffe per uniformare vendita online con macchinetta di bordo. 
             <li>Dal sito Tecbus recuperare codici contabili dei poli, codice linea, descrizione linea, competenza ( regionale, provinciale ecc…)
         </li></li></ul>
-<h2 id="creazione_linea">CREAZIONE LINEA</h2>
+<h2 id="profilo_commerciale_h2_1">CREAZIONE LINEA</h2>
 <p>Nel dettaglio, per l'inserimento di una linea, l'utente deve seguire la serie di passi successivi di seguito riportati e descritti poi nel corpo del manuale: </p>
 <ol>
 <li><b>Configurazione:</b> step volto alla consultazione di informazioni preliminari di gestione dell'amministratore cotrap che poi ritorneranno utili per lo svolgimento dell'esercizio;</li>
@@ -92,7 +147,7 @@
 <li><b>Ordini:</b> funzionalità volta a fornire dettagli sui biglietti venduti e possibilità di ricerca;</li>
 <li><b>Esportazioni:</b> funzionalità relativa alla possibilità di scaricare in formato excel o txt i dati ricercati.</li>
 </ol>
-<h2 id="configurazione">CONFIGURAZIONE </h2>
+<h2 id="profilo_commerciale_h2_2">CONFIGURAZIONE </h2>
 <p>Nella Home cliccare su configurazione. In questa sezione saranno configurati da Cotrap tutti i parametri regionali (calendario scolastico, tariffari). Il consorziato potrà consultare questa sezione per regolarsi su come impostare le linee.<br/>
         Di seguito spieghiamo i passaggi per poter inserire tutti i dati necessari per creare una corsa.</p>
 <img alt="ITINERIS" src="img/Immagine04.3.png"/>
@@ -104,20 +159,20 @@
 <li>Utenti App Controlli</li>
 </ul>
 <img alt="ITINERIS" src="img/Immagine04.3b.png"/>
-<h2 id="tariffari">TARIFFARI</h2>
+<h2 id="profilo_commerciale_h2_3">TARIFFARI</h2>
 <p>In questa sezione vengono aggiornati dal consorzio i tariffari regionali. Clicca su tariffari nel caso in cui si vogliano vedere i tariffari.</p>
 <img alt="ITINERIS" src="img/Immagine4.3.1.png"/>
 <img alt="ITINERIS" src="img/Immagine4.3.1b.png"/>
-<div class="container1"><p>Cliccando sull'icona</p> <img alt="ITINERIS" src="img/icona01.png"/><p>è possibile visualizzare i tariffari km regionali, i dati non sono modificabili.</p> </div>
+<div class="container1"><p>Cliccando sull'icona <img alt="ITINERIS" src="img/icona01.png"/>è possibile visualizzare i tariffari km regionali, i dati non sono modificabili.</p></div>
 <img alt="ITINERIS" src="img/Immagine4.3.1c.png"/>
-<h2 id="calendari">CALENDARI</h2>
+<h2 id="profilo_commerciale_h2_4">CALENDARI</h2>
 <p>In questa sezione vengono aggiornati dal consorzio i calendari scolastici regionali, necessari per identificare le frequenze, itineris definisce automaticamente la vendita in base alla frequenza. Es. non sarà possibile acquistare una corsa con frequenza scolastica se da calendario la data ricercata dall'utente rientra nel range temporale delle vacanze di natale.</p>
 <img alt="ITINERIS" src="img/Immagine4.3.2.png"/>
 <img alt="ITINERIS" src="img/Immagine4.3.2b.png"/>
-<div class="container1"><p>Cliccando sull'icona</p> <img alt="ITINERIS" src="img/icona01.png"/><p>sarà possibile visionare il calendario:</p></div>
+<div class="container1"><p>Cliccando sull'icona <img alt="ITINERIS" src="img/icona01.png"/>sarà possibile visionare il calendario:</p></div>
 <img alt="ITINERIS" src="img/Immagine4.3.2c.png"/>
 <img alt="ITINERIS" src="img/Immagine4.3.2d.png"/>
-<h2 id="frequenza_corsa">FREQUENZA CORSA</h2>
+<h2 id="profilo_commerciale_h2_5">FREQUENZA CORSA</h2>
 <p>In questa sezione saranno inserite da ciascun consorziato le frequenze relative alle proprie linee. </p>
 <img alt="ITINERIS" src="img/Immagine4.3.3.png"/>
 <p>Cliccare su "aggiungi" in alto a destra.</p>
@@ -131,7 +186,7 @@
 <li><b>Personalizzare come da necessità.</b></li>
 <li><b>Infine cliccare su conferma in basso a destra per memorizzare i dati inseriti.</b></li>
 </ul>
-<h2 id="utenti_app_controlli">UTENTI APP CONTROLLI</h2>
+<h2 id="profilo_commerciale_h2_6">UTENTI APP CONTROLLI</h2>
 <p>Con questa funzione è possibile inserire gli autisti o i controllori atti al controllo dei biglietti dall'app itineris dedicata che potrà essere scaricata sul telefono degli autisti.  </p>
 <p>Clicca su <b>"AGGIUNGI"</b> per inserire un nuovo utente dell'app (autista o controllore) </p>
 <img alt="ITINERIS" src="img/Immagine4.3.4.png"/>
@@ -144,25 +199,29 @@
             Separatamente sarà fornito il manuale di funzionamento dell'app di controllo.  </p>
 </section>
 <!-- Gestione Movimento -->
-<section id="gestione_movimento">
+<section class="sezione-evidente" id="gestione_movimento">
 <h1 class="h1titolo">GESTIONE MOVIMENTO</h1>
-<h2 id="comprendere_il_sistema">COMPRENDERE IL SISTEMA</h2>
+<h2 id="gestione_movimento_h2_0">COMPRENDERE IL SISTEMA</h2>
 <p class="alert error">Questa sezione è la parte operativa più importante in quanto si riporta su itineris tutto l'esercizio.<br/> 
             Dopo aver fatto i passaggi precedenti è necessario inserire i codici contabili, i poli, le linee e le corse. Tutte queste operazioni si devono eseguire nella sezione Gestione movimento.</p>
-<img alt="ITINERIS" src="img/Immagine5.0.png"/>
+<div style="display: flex; align-items: flex-start; gap: 20px;">
+<img alt="ITINERIS" src="img/Immagine5.0b.png" style="max-width: 200px; height: auto;"/>
+<div>
 <p>In questa sezione è possibile visualizzare le seguenti voci di menu:</p>
-<ul><b>
-<li>Mezzi</li>
-<li>Codici contabili poli</li>
-<li>Poli</li>
-<li>Linee</li>
-<li>Corse</li>
-<li>Note</li>
-</b></ul>
-<img alt="ITINERIS" src="img/Immagine5.0b.png"/>
-<h2 id="mezzi">MEZZI</h2>
+<ul>
+<li><b>Mezzi</b></li>
+<li><b>Codici contabili poli</b></li>
+<li><b>Poli</b></li>
+<li><b>Linee</b></li>
+<li><b>Corse</b></li>
+<li><b>Note</b></li>
+<li><b>Titoli di viaggio</b></li>
+</ul>
+</div>
+</div>
+<h2 id="gestione_movimento_h2_1">MEZZI</h2>
 <p>Questa sezione è dedicata all'inserimento dei mezzi del parco veicoli. In questo momento non è necessario inserire alcun mezzo. La gestione del numero dei posti disponibili sarà gestita in un'altra sezione.  </p>
-<h2 id="codici_contabili">CODICI CONTABILI POLI</h2>
+<h2 id="gestione_movimento_h2_2">CODICI CONTABILI POLI</h2>
 <p class="alert warn">Come anticipato è necessario recuperare i codici contabili dei poli in uso da Tecbus. Un solo codice contabile deve essere associato ad un Comune. Attenzione: alle frazioni dei Comuni è necessario associare un altro codice contabile. (Esempio: Bari avrà un codice contabile Palese-Bari ne avrà un altro.) </p>
 <img alt="ITINERIS" src="img/Immagine5.2.png"/>
 <p>Cliccare su "Aggiungi" in alto a destra  </p>
@@ -172,9 +231,9 @@
 <b>Comune:</b> inserire il comune<br/>
 <b>Frazione:</b> scegliere tra le opzioni in caso sia necessario<br/>
 <b>Attenzione</b> Alla fine di ogni inserimento di poli cliccare sul tasto Conferma in basso a destra. <br/> </p>
-<h2 id="codici_contabili_alternativi">CODICI CONTABILI ALTERNATIVI</h2>
+<h2 id="gestione_movimento_h2_3">CODICI CONTABILI ALTERNATIVI</h2>
 <p>Eccezionalmente è possibile identificare uno stesso Comune con due codici contabili differenti. Se per esempio ci sono corse con un tragitto particolare per cui cambia anche la tariffa (Esempio: Corse rapide che potrebbero costare di più) si può identificare (se esiste già su tecbus) il polo con due codici. </p>
-<h2 id="poli">POLI</h2>
+<h2 id="gestione_movimento_h2_4">POLI</h2>
 <img alt="ITINERIS" src="img/Immagine5.3.png"/>
 <p>In questa sezione è possibile inserire le fermate associate al polo codificato nel passaggio precedente. </p>
 <img alt="ITINERIS" src="img/Immagine5.3b.png"/>
@@ -199,7 +258,7 @@
 <img alt="ITINERIS" src="img/Immagine5.3d.png"/>
 <p>A destra c'è la colonna "operazione". <br/>
             Le icone rappresentano nell'ordine da sinistra a desta: geolocalizzazione, visualizza/modifica, pubblica, cancella.</p>
-<h2 id="linee">LINEE</h2>
+<h2 id="gestione_movimento_h2_5">LINEE</h2>
 <img alt="ITINERIS" src="img/Immagine5.4.png"/>
 <p>In questa sezione si deve creare il template, ovvero lo "stampino" della linea che si ripeterà nei vari orari corsa per corsa. <br/>
         Cliccare su aggiungi per inserire una nuova linea.</p>
@@ -216,23 +275,23 @@
 <p class="alert warn"> <b>Attenzione: in questo passaggio è possibile creare direttamente il template e confermare tutto alla fine, oppure è possibile confermare in questo passaggio e poi creare il template. </b><br/>
             Spiegazione Tools (ovvero gli strumenti e le operazioni che trovate sulla destra)</p>
 <img alt="ITINERIS" src="img/Immagine5.4e.png"/>
-<div class="container1"><img alt="ITINERIS" src="img/icona02.png"/><p><b>Mostra fermate sulla mappa:</b> Una volta inserite tutte le fermate sarà possibile visualizzarle tutte sulla mappa</p></div>
-<div class="container1"><img alt="ITINERIS" src="img/icona03.png"/><p><b>Esporta in GeoJSON:</b> Gestione Amministratore Cotrap</p></div>
-<div class="container1"><img alt="ITINERIS" src="img/icona04.png"/><p><b>Template:</b> Modello predefinito che sarà da base per la creazione di tutte le corse relative a quella linea</p></div>
-<div class="container1"><img alt="ITINERIS" src="img/icona05.png"/><p><b>Duplica:</b> Nel caso si volesse creare un nuovo template con lo stesso template di quella precedente</p></div>
-<div class="container1"><img alt="ITINERIS" src="img/icona06.png"/><p><b>Duplica e Inverti:</b> Per creare il ritorno del template, riportando già le fermate al contrario rispetto alla linea in questione. </p></div>
-<div class="container1"><img alt="ITINERIS" src="img/icona07.png"/><p><b>Modifica:</b> Nel caso in cui si voglia procedere con delle modifiche (ad esempio nella corsa di ritorno cambiare il civico della fermata.</p></div>
-<div class="container1"><img alt="ITINERIS" src="img/icona08.png"/><p><b>Elimina:</b> Eliminare il template. </p></div>
-<h2 id="creazione_template">CREAZIONE DEL TEMPLATE</h2>
+<div class="container1"><img alt="ITINERIS" src="img/icona02.png"/><b>Mostra fermate sulla mappa:</b> Una volta inserite tutte le fermate sarà possibile visualizzarle tutte sulla mappa</div>
+<div class="container1"><img alt="ITINERIS" src="img/icona03.png"/><b>Esporta in GeoJSON:</b> Gestione Amministratore Cotrap</div>
+<div class="container1"><img alt="ITINERIS" src="img/icona04.png"/><b>Template:</b> Modello predefinito che sarà da base per la creazione di tutte le corse relative a quella linea</div>
+<div class="container1"><img alt="ITINERIS" src="img/icona05.png"/><b>Duplica:</b> Nel caso si volesse creare un nuovo template con lo stesso template di quella precedente</div>
+<div class="container1"><img alt="ITINERIS" src="img/icona06.png"/><b>Duplica e Inverti:</b> Per creare il ritorno del template, riportando già le fermate al contrario rispetto alla linea in questione.</div>
+<div class="container1"><img alt="ITINERIS" src="img/icona07.png"/><b>Modifica:</b> Nel caso in cui si voglia procedere con delle modifiche (ad esempio nella corsa di ritorno cambiare il civico della fermata.</div>
+<div class="container1"><img alt="ITINERIS" src="img/icona08.png"/><b>Elimina:</b> Eliminare il template.</div>
+<h2 id="gestione_movimento_h2_6">CREAZIONE DEL TEMPLATE</h2>
 <p>Questa fase risulta tra le più delicate in quanto determina la correttezza del percorso che poi sarà replicato su tutte le corse che fanno parte di una determinata linea. Quindi determinano anche ciò che verrà mostrato vendibile sul sito <a href="https://www.cotrap.it" target="_blank">COTRAP</a> per ulteriori informazioni.<br/>
         Cliccando sull'icona "visualizza template" si apre la seguente schermata</p>
 <img alt="ITINERIS" src="img/Immagine5.4.1.png"/>
 <p class="alert warn">In questo modo si possono aggiungere tutte le fermate della linea.<br/>
         Attenzione: cliccare su conferma in questa sezione non significa aver confermato tutto l'inserimento.</p>
 <img alt="ITINERIS" src="img/Immagine5.4.1b.png"/>
-<p><b>1</b>Cliccare su Aggiungi </p>
+<p><b>1</b> Cliccare su Aggiungi </p>
 <img alt="ITINERIS" src="img/Immagine5.4.1c.png"/>
-<p><b>2</b>Cliccando nel riquadro, si potranno visualizzare tutti i poli e le relative fermate inserite nella funzione "POLI".  </p>
+<p><b>2</b> Cliccando nel riquadro, si potranno visualizzare tutti i poli e le relative fermate inserite nella funzione "POLI".  </p>
 <img alt="ITINERIS" src="img/Immagine5.4.1d.png"/>
 <p>Selezionando una delle fermate indicate (che sarà la prima della vostra linea) saranno visualizzate direttamente le coordinate. </p>
 <img alt="ITINERIS" src="img/Immagine5.4.1e.png"/>
@@ -259,7 +318,7 @@
 <li>Cliccare su conferma in basso a destra</li>
 <li>Riattivare le corse con il template modificato. </li>
 </ul>
-<h2 id="corse">CORSE</h2>
+<h2 id="gestione_movimento_h2_7">CORSE</h2>
 <p>In questa sezione sarà possibile creare le corse associate alle rispettive linee create nel passaggio precedente.  </p>
 <img alt="ITINERIS" src="img/Immagine5.5.png"/>
 <p>Cliccare su aggiungi in alto a destra </p>
@@ -277,9 +336,9 @@
 <b>Attenzione:</b> cliccare su "ATTIVAZIONE/DISATTIVAZIONE AUTOMATICA" in questo modo se ad esempio di tratta di corsa scolastica si attiverà automaticamente in base al calendario scolastico regionale. <br/>
         Una volta inseriti i dati inziali automaticamente il sistema visualizzerà i poli e tutti i dati già impostati nel template</p>
 <img alt="ITINERIS" src="img/Immagine5.5c.png"/>
-<div class="container1"><p> Cliccare su tastino</p> <img alt="ITINERIS" src="img/icona07.png"/><p class="alert warn">per inserire il primo orario. Attenzione. Sarà necessario inserire solo l'orario di partenza dal capolinea e il sistema in base ai minuti e km inseriti nel template aggiornerà a cascata tutti gli altri orari.</p></div>
+<div class="container1"> Cliccare su tastino <img alt="ITINERIS" src="img/icona07.png"/><p class="alert warn">per inserire il primo orario. Attenzione. Sarà necessario inserire solo l'orario di partenza dal capolinea e il sistema in base ai minuti e km inseriti nel template aggiornerà a cascata tutti gli altri orari.</p></div>
 <img alt="ITINERIS" src="img/Immagine5.5d.png"/>
-<div class="container1"><p> Inserire l'orario (ore e minuti) e cliccare su </p> <img alt="ITINERIS" src="img/icona09.png"/></div>
+<div class="container1">Inserire l'orario (ore e minuti) e cliccare su <img alt="ITINERIS" src="img/icona09.png"/></div>
 <img alt="ITINERIS" src="img/Immagine5.5e.png"/>
 <p> Di seguito si potrà vedere come in automatico il sistema avrà aggiornato gli orari </p>
 <img alt="ITINERIS" src="img/Immagine5.5f.png"/>
@@ -287,13 +346,13 @@
             A questo punto la corsa sarà stata creata, ma non ancora vendibile sul sito <a href="https://www.cotrap.it" target="_blank">COTRAP</a>.</p>
 <img alt="ITINERIS" src="img/Immagine5.5g.png"/>
 <p> Cliccare su conferma in basso a destra.  </p>
-<div class="container1"><p>Per attivare la corsa e renderla vendibile di deve cliccare sull'operazione </p> <img alt="ITINERIS" src="img/icona10.png"/> <p>(pubblica /nascondi).</p></div>
+<div class="container1"><p>Per attivare la corsa e renderla vendibile di deve cliccare sull'operazione <img alt="ITINERIS" src="img/icona10.png"/> (pubblica /nascondi).</p></div>
 <p>Cliccando, il sistema richiede conferma perché da quel momento in poi la corsa sarà visibile dagli utenti e quindi è necessario essere sicuri della correttezza dell'operazione. </p>
 <img alt="ITINERIS" src="img/Immagine5.5h.png"/>
 <p>Se si desidera procedere cliccare su conferma. <br/>
         Si consiglia inserire prima tutte le corse e poi procedere con la pubblicazione delle stesse. Lo stato attivazione quindi diventerà: "Attiva". </p>
 <img alt="ITINERIS" src="img/Immagine5.5i.png"/>
-<h2 id="note">NOTE</h2>
+<h2 id="gestione_movimento_h2_8">NOTE</h2>
 <img alt="ITINERIS" src="img/Immagine5.6.png"/>
 <p class="alert info">Questa funzionalità permette di inserire delle indicazioni particolari che verranno visualizzate direttamente dai clienti sul sito <a href="https://www.cotrap.it" target="_blank">COTRAP</a>.<br/>
         Cliccare su Aggiungi in alto a destra per inserire la nota.</p>
@@ -314,14 +373,17 @@
 <img alt="ITINERIS" src="img/Immagine5.6f.png"/>
 <p> Nella prossima schermata si vedrà quello che appare sul sito <a href="https://www.cotrap.it" target="_blank">COTRAP</a> </p>
 <img alt="ITINERIS" src="img/Immagine5.6g.png"/>
+<h2 id="gestione_movimento_h2_9">Titoli di viaggio</h2>
+<p>In questa sezione è possibile gestire i tipi di abbonamenti attivi </p>
+<p class="alert warn">Attenzione i tipi di abbonamento possono variare tra aziende, quindi per una corretta impostazione devono essere richiesti all'indirizzo: <a href="mailto:m.tancorre@cotrap.it">m.tancorre@cotrap.it</a></p>
+<img alt="ITINERIS" src="img/Immagine5.7.png"/>
 </section>
 <!-- Eccezioni -->
-<section id="eccezioni">
+<section class="sezione-evidente" id="eccezioni">
 <h1 class="h1titolo">ECCEZIONI</h1>
-<img alt="ITINERIS" src="img/Immagine6.0.png"/>
 <p>Questa funzione permette di creare delle particolari condizioni ad esempio in cui la corsa non risulta visibile ( es. sospensione del servizio per festività natalizie) oppure delle eccezioni tariffarie in caso in cui la tariffa non sia in linea con il tariffario polimetrico. </p>
 <img alt="ITINERIS" src="img/Immagine6.0b.png"/>
-<h2 id="eccezioni">ECCEZIONI</h2>
+<h2 id="eccezioni_h2_0">ECCEZIONI</h2>
 <p>In questa sezione è possibile gestire una situazione straordinaria legata all'esercizio. Ad esempio una fermata che non viene effettuata in alcuni periodi per lavori stradali (in questo caso sarà gestito il polo) oppure una corsa che non viene effettuata per festività natalizie o pasquali o sciopero (in questo caso sarà possibile gestire la singola corsa oppure tutte le linee). In questo modo la corsa non sarà visibile sul sito <a href="https://www.cotrap.it" target="_blank">COTRAP</a>. <br/>
         Riportiamo l'esempio di alcune eccezioni caricate da Cotrap. </p>
 <img alt="ITINERIS" src="img/Immagine6.1.png"/>
@@ -335,7 +397,7 @@
         *= può capitare che alcune aziende abbiano la necessità di effettuare delle corse "scolastiche" anche prima dell'inizio del calendario regionale (per esigenze o specifiche richieste da parte delle scuole). In questo caso si può cambiare una corsa ad esempio feriale e farla diventare "eccezionalmente" scolastica. <br/>
 <b>Descrizione:</b> inserire il testo che esplicita la spiegazione (es. avviso, ordinanza…ecc…)<br/>
         Come sempre al termine della compilazione cliccare in basso a destra su conferma.</p>
-<h2 id="eccezioni_tariffe">ECCEZIONI TARIFFARIE</h2>
+<h2 id="eccezioni_h2_1">ECCEZIONI TARIFFARIE</h2>
 <p>Con questa funzione è possibile modificare eccezionalmente il tariffario di alcune corse che non seguono il tariffario chilometrico. Ad esempio corse che hanno un tariffario fisso. </p>
 <img alt="ITINERIS" src="img/Immagine6.2.png"/>
 <p>Come sempre cliccare su aggiungi in alto a destra per inserire una eccezione tariffaria. </p>
@@ -344,13 +406,13 @@
 <b>Data inizio: </b>inserire la data in cui entrerà in vigore l'eccezione<br/>
 <b>Linea:</b> selezionare la linea (c'è anche la possibilità di selezionare l'opzione tutte le linee, nel caso in cui tutto il servizio debba avere una tariffa fissa)<br/>
 <b> Corsa:</b> nel caso si selezioni una linea in particolare, c'è la possibilità di selezionare la corsa che subirà la variazione tariffaria.</p>
-<div class="container1"><p> Cliccare su tastino</p><img alt="ITINERIS" src="img/icona11.png"/><p>per aggiungere la selezione effettuata.</p></div>
+<div class="container1"><p> Cliccare su tastino<img alt="ITINERIS" src="img/icona11.png"/>per aggiungere la selezione effettuata.</p></div>
 <p>Dopo aver selezionato linea e corsa, è necessario inserire i codici dei polo nella sezione sottostante.</p>
 <img alt="ITINERIS" src="img/Immagine6.2c.png"/>
 <p>Inserire il comune di partenza, eventualmente la frazione e selezionare il codice contabile del polo, effettuare la stessa cosa con il polo di arrivo.<br/> 
             Quindi procedere con l'indicazione dell'importo che sarà visionato sul sito <a href="https://www.cotrap.it" target="_blank">COTRAP</a><br/>
             A questo punto cliccare su conferma in basso a destra.</p>
-<h2 id="controllo_tariffario">CONTROLLO TARIFFARIO</h2>
+<h2 id="eccezioni_h2_2">CONTROLLO TARIFFARIO</h2>
 <img alt="ITINERIS" src="img/Immagine6.3.png"/>
 <p>Si tratta di una opzione di consultazione. È possibile consultare il tariffario in base al chilometrico.</p>
 <img alt="ITINERIS" src="img/Immagine6.3b.png"/>
@@ -359,7 +421,7 @@
             Verranno quindi visualizzati i tariffari polo per polo. <br/>
             È possibile estrapolare questo prospetto cliccando sul tasto esporta. Questa esportazione verrà memorizzata nella sezione che vedremo successivamente "Esportazioni".</p>
 <img alt="ITINERIS" src="img/Immagine6.3c.png"/>
-<h2 id="controllo_tarif_itine">CONTROLLO TARIFFARIO ITINERARIO</h2>
+<h2 id="eccezioni_h2_3">CONTROLLO TARIFFARIO ITINERARIO</h2>
 <img alt="ITINERIS" src="img/Immagine6.4.png"/>
 <p>Con questa funzione di controllo è possibile verificare la correttezza delle tariffe in un determinato itinerario.<br/>
     Ad esempio se c'è stata una eccezione tariffaria tra due poli, con questa funzione è possibile verificare se per tutte le corse con i suddetti poli sia stato applicato la tariffa corretta.</p>
@@ -370,13 +432,12 @@
 <p>Dal risultato si evince che tutti i collegamenti non riportano la vecchia tariffa, ma risultano tutte aggiornate al nuovo tariffario. </p>
 </section>
 <!-- Ordini -->
-<section id="ordini">
+<section class="sezione-evidente" id="ordini">
 <h1 class="h1titolo">ORDINI</h1>
-<img alt="ITINERIS" src="img/Immagine7.0.png"/>
 <p>La sezione ORDINI è di consultazione. È possibile effettuare ricerche e controlli su quanto venduto dal sito <a href="https://www.cotrap.it" target="_blank">COTRAP</a> e anche dall'app COTRAP.<br/>
         Come si può vedere dalla schermata riportata di seguito ci sono diverse possibilità di ricerca:</p>
 <img alt="ITINERIS" src="img/Immagine7.0b.png"/>
-<h2 id="biglietti">BIGLIETTI</h2>
+<h2 id="ordini_h2_0">BIGLIETTI</h2>
 <img alt="ITINERIS" src="img/Immagine7.1.png"/>
 <p>Questa sotto-funzione permette di effettuare una ricerca dettagliata dei singoli titoli di viaggio.</p>
 <img alt="ITINERIS" src="img/Immagine7.1b.png"/>
@@ -391,25 +452,25 @@
 <b>Codice Biglietto:</b> inserire il codice compresa la lettera finale. Permette una ricerca mirata del singolo biglietto. <br/>
 <b>Progressivo biglietto:</b> è preferibile non usare questo parametro di ricerca perché il codice numerico è un progressivo interno. <br/>
             È possibile esportare tutti i risultati di ricerca se necessario con il tasto esporta che restituisce un file .xls con tutti i dettagli dei biglietti ricercati.</p>
-<h2 id="stati_occupazionali_corse">STATI OCCUPAZIONALI CORSE</h2>
+<h2 id="ordini_h2_1">STATI OCCUPAZIONALI CORSE</h2>
 <img alt="ITINERIS" src="img/Immagine7.2.png"/>
 <p>È possibile monitorare lo stato di occupazione dei mezzi in base alle corse ricercate.</p>
 <img alt="ITINERIS" src="img/Immagine7.2b.png"/>
 <p class="alert warn">Inserire i parametri di ricerca e cliccare su applica. <br/>
             Attenzione: la percentuale di occupazione è riferita unicamente ai biglietti acquistati online e non tiene conto del venduto cartaceo.<br/>
             Anche in questo caso è possibile procedere con l'esportazione.</p>
-<h2 id="stato_controlli">STATO CONTROLLI</h2>
+<h2 id="ordini_h2_2">STATO CONTROLLI</h2>
 <img alt="ITINERIS" src="img/Immagine7.3.png"/>
 <p>Con questa funzione è possibile verificare i controlli fatti a bordo sui biglietti online. </p>
 <img alt="ITINERIS" src="img/Immagine7.3b.png"/>
 <p>Si può inserire la data di controllo e cliccare su applica, ma anche il controllore specifico (nella voce utente). </p>
-<h2 id="statistiche_biglietti">STATISTICHE BIGLIETTI</h2>
+<h2 id="ordini_h2_3">STATISTICHE BIGLIETTI</h2>
 <img alt="ITINERIS" src="img/Immagine7.4.png"/>
 <p>Permette di controllare su determinate corse i biglietti venduti online, quelli controllati e quelli eventualmente non validi. Anche in questo caso è possibile esportare i dati.  </p>
 <img alt="ITINERIS" src="img/Immagine7.4b.png"/>
 </section>
 <!-- Esportazioni -->
-<section id="esportazioni">
+<section class="sezione-evidente" id="esportazioni">
 <h1 class="h1titolo">ESPORTAZIONI</h1>
 <img alt="ITINERIS" src="img/Immagine8.0.png"/>
 <p>Permette di effettuare il download di tutte le esportazioni effettuate. Sia in formato xls, sia in txt.<br/>
@@ -418,7 +479,7 @@
 <div class="container1"><p>Cliccando su tasto a destra</p><img alt="ITINERIS" src="img/icona12.png"/><p>saranno scaricati i file corrispondenti.</p></div>
 </section>
 <!-- SEZIONE CONTABILE -->
-<section id="sezionecontabile">
+<section class="sezione-evidente" id="sezionecontabile">
 <h1 class="h1titolo">SEZIONE CONTABILE</h1>
 <p>Per accedere ad account contabile, è necessario inserire nella prima pagina id utente e password dedicati. <br/>
             Accertarsi di essere nell'account giusto verificando la scritta in basso a sinistra. Nome e Cognome dell'utente e tra parentesi il nome dell'azienda consorziata. </p>
@@ -433,7 +494,7 @@
 <p>2.	Cliccare su “Esportazioni” </p>
 <img alt="ITINERIS" src="img/Immagine9.0d.png"/>
 <img alt="ITINERIS" src="img/Immagine9.0e.png"/>
-<h2 id="ordini1">Ordini</h2>
+<h2 id="sezionecontabile_h2_0">Ordini</h2>
 <p class="alert info">Ordini ci mostra tutti gli ordini (alcuni dei quali contenenti più biglietti), acquistati dal portale web, dall'app con carta di credito e con il credito e le prenotazioni con abbonamenti.  <br/>
             A tal proposito ricordiamo che sull'app l'utente può registrare la propria carta di credito, effettuare una ricarica sul proprio account ed utilizzare il credito per l'acquisto dei titoli di viaggio. <br/>
             É possibile attraverso i filtri effettuare delle ricerche dedicate. <br/></p>
@@ -456,7 +517,7 @@
 <p>Nel caso in cui si voglia esportare la ricerca è necessario cliccare sul tasto di download: </p>
 <img alt="ITINERIS" src="img/Immagine9.1d.png"/>
 <p>Il file scaricato potrà poi essere recuperato nella funzione "Esportazioni". </p>
-<h2 id="daticontabili">Dati Contabili</h2>
+<h2 id="sezionecontabile_h2_1">Dati Contabili</h2>
 <p>con questa sotto-funzione è possibile recuperare i dati relativi al venduto. Questi dati potranno poi essere acquisiti e trasferiti sui software di gestione aziendale.<br/> Anche in questo caso è possibile applicare i filtri per effettuare la ricerca di interesse.</p>
 <img alt="ITINERIS" src="img/Immagine9.1.2.png"/>
 <p>Per effettuare la ricerca bisogna inserire i seguenti parametri, in base a ciò che si vuole ricercare:</p>
@@ -477,12 +538,12 @@
 <p class="alert warn">Attenzione. È necessario effettuare n. 2 esportazioni separate. Una online - pagato - tutti e poi credito - pagato. In questo modo si otterranno tutti i biglietti acquistati sia con carta di credito sia con il credito presente sulle ricariche.</p>
 <div class="container1"><p>In questo caso però per effettuare il download non c'è il simbolo precedente, ma i due tasti</p> <img alt="ITINERIS" src="img/Immagine9.1.2b.png"/> <img alt="ITINERIS" src="img/Immagine9.1.2c.png"/> </div>
 <p>I file possono poi essere recuperati tra le ESPORTAZIONI (esporta restituisce un file .txt, invece il tasto esporta SEP restituisce messaggio .xls) </p>
-<h2 id="biglietti1">Biglietti</h2>
+<h2 id="sezionecontabile_h2_2">Biglietti</h2>
 <p>questa sotto-funzione permette di effettuare una ricerca dettagliata dei singoli titoli di viaggio.</p>
 <img alt="ITINERIS" src="img/Immagine9.1.3.png"/>
 <p>In aggiunta rispetto ai precedenti parametri di ricerca ci sono Linea, Corsa, Comune di partenza, frazione….<br/>
             Il tasto esporta restituisce un file .xls con tutti i dettagli dei biglietti ricercati.</p>
-<h2 id="statistichevenduto">Statistiche venduto</h2>
+<h2 id="sezionecontabile_h2_3">Statistiche venduto</h2>
 <p>Questa sotto- funzione è utilizzata per verificare il venduto totale per l'azienda consorziata. I file scaricati sono trasferiti al sistema di gestione amministrativo aziendale. </p>
 <img alt="ITINERIS" src="img/Immagine9.1.4.png"/>
 <div class="container1"><p>Il tasto</p> <img alt="ITINERIS" src="img/Immagine9.1.2b.png"/><p>restituisce un file .txt, il tasto </p> <img alt="ITINERIS" src="img/Immagine9.1.4b.png"/><p>restituisce file .xls</p> </div>
@@ -492,9 +553,9 @@
 <div class="container1"><p>Tutti i file possono essere scaricati cliccando sul simbolo </p> <img alt="ITINERIS" src="img/icona12.png"/><p> , i file scaricati saranno pertanto disponibili nella cartella Download del proprio PC. </p></div>
 </section>
 <!-- GUIDA VELOCE -->
-<section id="app_controllo">
+<section class="sezione-evidente" id="app_controllo">
 <h1 class="h1titolo">📱 APP Controllo</h1>
-<h2 id="fase1">1. Installazione dell'App Itineris (solo dispositivi Android)</h2>
+<h2 id="app_controllo_h2_0">1. Installazione dell'App Itineris (solo dispositivi Android)</h2>
 <ul>
 <li><strong>Attenzione:</strong> se è già presente una vecchia versione, va disinstallata prima di installare quella nuova.</li>
 <li>Ricevi il link dall'Azienda e aprilo direttamente sul dispositivo.</li>
@@ -504,13 +565,13 @@
 <li>Una volta installata, troverai l'icona dell'app "Itineris" nella schermata principale.</li>
 </ul>
 <img alt="Installazione App" src="img/app_installazione.png"/>
-<h2 id="fase2">2. Primo Avvio dell'App</h2>
+<h2 id="app_controllo_h2_1">2. Primo Avvio dell'App</h2>
 <ul>
 <li>Consenti l'accesso alla fotocamera, selezionando "Ogni volta che si usa l'app".</li>
 <li><strong>Nota:</strong> La fotocamera serve per scansionare i QR code dei biglietti.</li>
 </ul>
 <img alt="Permesso fotocamera" src="img/accesso_fotocamera.png"/>
-<h2 id="fase3">3. Login e Inizio Controllo</h2>
+<h2 id="app_controllo_h2_2">3. Login e Inizio Controllo</h2>
 <ul>
 <li>Apri l'app e inserisci:</li>
 <li>- Email nel campo "Nome account"</li>
@@ -519,7 +580,7 @@
 </ul>
 <img alt="Login App" src="img/login_app.png"/>
 <img alt="Salita controllo" src="img/salitacontrollo.png"/>
-<h2 id="fase4">4. Scansione del Biglietto</h2>
+<h2 id="app_controllo_h2_3">4. Scansione del Biglietto</h2>
 <ul>
 <li>Inquadra il QR code del biglietto con la fotocamera.</li>
 <li>L'app fornirà uno dei seguenti esiti:</li>
@@ -529,19 +590,19 @@
 </ul>
 <img alt="Scansione biglietto" src="img/scansione_biglietto.png"/>
 <img alt="Scansione biglietto1" src="img/scansione_biglietto1.png"/>
-<h2 id="fase5">5. Fine Controllo</h2>
+<h2 id="app_controllo_h2_4">5. Fine Controllo</h2>
 <ul>
 <li>Quando tutti i biglietti sono stati controllati, tocca "TERMINA" e inserisci il Comune di discesa (solo per verificatori).</li>
 </ul>
 <img alt="Termina Controllo" src="img/termina_controllo.png"/>
-<h2 id="fase6">6. Invio Rapportino di Fine Verifica</h2>
+<h2 id="app_controllo_h2_5">6. Invio Rapportino di Fine Verifica</h2>
 <ul>
 <li>Vai alla Home dell'app e seleziona l'icona del rapportino.</li>
 <li>Clicca sul rapporto per aprirlo, poi seleziona l'icona con la busta per inviarlo.</li>
 <li>Conferma selezionando "SÌ". Il rapporto sarà inviato via email all'ufficio competente.</li>
 </ul>
 <img alt="Invio Rapportino" src="img/invio_rapportino.png"/>
-<h2 id="link_utili">Link Utili</h2>
+<h2 id="app_controllo_h2_6">Link Utili</h2>
 <ul>
 <p>Hai ancora dubbi? Segui le nostre <strong>VIDEO GUIDE</strong></p>
 <li><a href="https://youtu.be/Kyo_XAA1I1Y" target="_blank">🎥 Installazione App Itineris</a></li>
@@ -553,7 +614,6 @@
 <script src="script.js"></script>
 <button id="scrollToTop" title="Torna su">⬆</button>
 <script src="script.js"></script>
-
 <style>
     #lightbox-overlay {
       display: none;
@@ -589,5 +649,5 @@
       });
     });
     </script>
-</body>
+<button id="scrollToTop" title="Torna su">↑</button></body>
 </html>

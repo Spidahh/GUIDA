@@ -74,3 +74,33 @@ function toggleMenu() {
     const menu = document.querySelector('.menu');
     menu.classList.toggle('open');
 }
+
+
+// --- SCROLL TO TOP ---
+const scrollBtn = document.getElementById("scrollToTop");
+if (scrollBtn) {
+    window.addEventListener("scroll", () => {
+        scrollBtn.style.display = window.scrollY > 200 ? "block" : "none";
+    });
+    scrollBtn.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
+
+// --- TOGGLE SUBMENU COMPORTAMENTO PERSISTENTE SU CLICK SOLO PRINCIPALE ---
+document.querySelectorAll("li.grosso").forEach(item => {
+    item.addEventListener("click", (e) => {
+        // Evita di chiudere se si clicca su un elemento interno (sottovoce)
+        if (e.target !== item) return;
+
+        document.querySelectorAll("ul.submenu").forEach(sub => {
+            if (sub !== item.querySelector("ul.submenu")) {
+                sub.style.display = "none";
+            }
+        });
+        let submenu = item.querySelector("ul.submenu");
+        if (submenu) {
+            submenu.style.display = submenu.style.display === "block" ? "none" : "block";
+        }
+    });
+});

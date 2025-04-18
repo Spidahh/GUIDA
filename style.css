@@ -275,3 +275,84 @@ li {
     border-radius: 6px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
+
+/* Bordi separatori tra sezioni */
+.sezione-evidente {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+/* Stile per i sottomenù */
+ul.submenu {
+    list-style: none;
+    margin-left: 15px;
+    display: none;
+    padding: 0;
+}
+
+ul.submenu li {
+    cursor: pointer;
+    padding: 5px 0;
+    font-size: 0.95em;
+    color: #196db6;
+}
+
+li.grosso:hover > ul.submenu {
+    display: block;
+}
+
+
+/* Migliora la separazione visiva tra paragrafi e contenuti */
+section.sezione-evidente p,
+section.sezione-evidente ul,
+section.sezione-evidente ol {
+    margin-bottom: 1.2em;
+    line-height: 1.6;
+}
+
+/* Opzionale: bordo sottile sopra gli h2 */
+section.sezione-evidente h2 {
+    border-top: 1px solid #ccc;
+    padding-top: 1em;
+    margin-top: 2em;
+}
+
+
+
+/* --- SOTTOMENU DEFINITIVO, SOBRIO, MULTIRIGA, LEGGIBILE --- */
+ul.submenu {
+    list-style: none;
+    margin: 6px 0 6px 6px;
+    padding: 6px 10px;
+    border-left: 3px solid #196db6;
+    border-radius: 4px;
+    display: none;
+    transition: all 0.3s ease;
+    max-width: 250px;
+}
+
+ul.submenu li {
+    padding: 5px 2px;
+    font-size: 0.95em;
+    color: #333;
+    cursor: pointer;
+}
+
+ul.submenu li:hover {
+    background-color: #f0f4f8;
+    border-radius: 4px;
+}
+
+ul.submenu li a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    white-space: normal;
+    word-break: normal;
+    overflow: visible;
+}
+
+ul.submenu li a:hover {
+    color: #196db6;
+}
