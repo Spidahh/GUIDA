@@ -298,9 +298,7 @@ ul.submenu li {
     color: #196db6;
 }
 
-li.grosso:hover > ul.submenu {
-    display: block;
-}
+
 
 
 /* Migliora la separazione visiva tra paragrafi e contenuti */
