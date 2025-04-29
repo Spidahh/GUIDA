@@ -159,9 +159,7 @@ li {
         left: 0;
     }
 
-    
-
-
+   
 
     .content {
         margin-left: 0;
@@ -354,3 +352,9 @@ ul.submenu li a {
 ul.submenu li a:hover {
     color: #196db6;
 }
+
+@media print {
+    .menu {
+      display: none !important;
+    }
+  }
